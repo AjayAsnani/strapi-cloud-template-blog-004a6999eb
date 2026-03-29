@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "faculty_sections",
+  "info": {
+    "singularName": "faculty-section",
+    "pluralName": "faculty-sections",
+    "displayName": "Faculty Section"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "mentorName": {
+      "type": "text"
+    },
+    "mentorDesignation": {
+      "type": "text"
+    },
+    "mentorImage": {
+      "type": "text"
+    },
+    "mentorLogo": {
+      "type": "text"
+    },
+    "program": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::program.program"
+    }
+  }
+}

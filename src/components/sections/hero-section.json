@@ -1,0 +1,36 @@
+{
+  "collectionName": "components_sections_hero_sections",
+  "info": {
+    "displayName": "Hero Section",
+    "description": "Hero banner section for program pages"
+  },
+  "options": {},
+  "attributes": {
+    "badge": {
+      "type": "string"
+    },
+    "heading": {
+      "type": "text"
+    },
+    "description": {
+      "type": "text"
+    },
+    "primaryButtonLabel": {
+      "type": "string"
+    },
+    "primaryButtonHref": {
+      "type": "string"
+    },
+    "secondaryButtonLabel": {
+      "type": "string"
+    },
+    "secondaryButtonHref": {
+      "type": "string"
+    },
+    "features": {
+      "type": "component",
+      "component": "sections.feature-item",
+      "repeatable": true
+    }
+  }
+}
