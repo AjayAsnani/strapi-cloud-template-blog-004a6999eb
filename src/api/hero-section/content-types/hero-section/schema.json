@@ -1,0 +1,60 @@
+{
+  "kind": "collectionType",
+  "collectionName": "hero_sections",
+  "info": {
+    "singularName": "hero-section",
+    "pluralName": "hero-sections",
+    "displayName": "Hero section",
+    "description": "One entry per page: pageSlug matches your frontend route key; heroVariant selects which hero component renders."
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "pageSlug": {
+      "type": "uid",
+      "required": true
+    },
+    "heroVariant": {
+      "type": "enumeration",
+      "enum": ["default", "split_with_media", "minimal", "full_bleed"],
+      "default": "default",
+      "required": true
+    },
+    "headline": {
+      "type": "string",
+      "required": true
+    },
+    "subheadline": {
+      "type": "text"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "backgroundImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"]
+    },
+    "sideImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"]
+    },
+    "primaryCtaLabel": {
+      "type": "string"
+    },
+    "primaryCtaUrl": {
+      "type": "string"
+    },
+    "secondaryCtaLabel": {
+      "type": "string"
+    },
+    "secondaryCtaUrl": {
+      "type": "string"
+    }
+  }
+}
