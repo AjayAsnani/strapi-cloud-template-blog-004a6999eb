@@ -12,49 +12,28 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "pageSlug": {
-      "type": "uid",
-      "required": true
-    },
-    "heroVariant": {
-      "type": "enumeration",
-      "enum": ["default", "split_with_media", "minimal", "full_bleed"],
-      "default": "default",
-      "required": true
-    },
-    "headline": {
-      "type": "string",
-      "required": true
-    },
-    "subheadline": {
+    "highlightText": {
       "type": "text"
     },
-    "description": {
-      "type": "richtext"
+    "headingOne": {
+      "type": "text"
     },
-    "backgroundImage": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": ["images"]
-    },
-    "sideImage": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": ["images"]
-    },
-    "primaryCtaLabel": {
+    "headingTwoBold": {
       "type": "string"
     },
-    "primaryCtaUrl": {
+    "headingThree": {
       "type": "string"
     },
-    "secondaryCtaLabel": {
-      "type": "string"
+    "Discription": {
+      "type": "text"
     },
-    "secondaryCtaUrl": {
-      "type": "string"
+    "program": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::program.program"
+    },
+    "pointList": {
+      "type": "text"
     }
   }
 }
