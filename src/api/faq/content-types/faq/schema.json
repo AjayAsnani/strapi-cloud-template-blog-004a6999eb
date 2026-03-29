@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "faqs",
+  "info": {
+    "singularName": "faq",
+    "pluralName": "faqs",
+    "displayName": "FAQ"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "question": {
+      "type": "text"
+    },
+    "answer": {
+      "type": "text"
+    },
+    "program": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::program.program"
+    },
+    "order": {
+      "type": "integer"
+    }
+  }
+}

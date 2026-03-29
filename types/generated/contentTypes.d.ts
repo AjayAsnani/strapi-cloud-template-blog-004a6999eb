@@ -563,6 +563,34 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiFaqFaq extends Struct.CollectionTypeSchema {
+  collectionName: 'faqs';
+  info: {
+    displayName: 'FAQ';
+    pluralName: 'faqs';
+    singularName: 'faq';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    answer: Schema.Attribute.Text;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::faq.faq'> &
+      Schema.Attribute.Private;
+    order: Schema.Attribute.Integer;
+    program: Schema.Attribute.Relation<'oneToOne', 'api::program.program'>;
+    publishedAt: Schema.Attribute.DateTime;
+    question: Schema.Attribute.Text;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
   collectionName: 'globals';
   info: {
@@ -595,6 +623,49 @@ export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiHeroSectionHeroSection extends Struct.CollectionTypeSchema {
+  collectionName: 'hero_sections';
+  info: {
+    description: 'One entry per page: pageSlug matches your frontend route key; heroVariant selects which hero component renders.';
+    displayName: 'Hero section';
+    pluralName: 'hero-sections';
+    singularName: 'hero-section';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    backgroundImage: Schema.Attribute.Media<'images'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.RichText;
+    headline: Schema.Attribute.String & Schema.Attribute.Required;
+    heroVariant: Schema.Attribute.Enumeration<
+      ['default', 'split_with_media', 'minimal', 'full_bleed']
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'default'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::hero-section.hero-section'
+    > &
+      Schema.Attribute.Private;
+    pageSlug: Schema.Attribute.UID & Schema.Attribute.Required;
+    primaryCtaLabel: Schema.Attribute.String;
+    primaryCtaUrl: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    secondaryCtaLabel: Schema.Attribute.String;
+    secondaryCtaUrl: Schema.Attribute.String;
+    sideImage: Schema.Attribute.Media<'images'>;
+    subheadline: Schema.Attribute.Text;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiProgramProgram extends Struct.CollectionTypeSchema {
   collectionName: 'programs';
   info: {
@@ -606,6 +677,7 @@ export interface ApiProgramProgram extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    careerRoles: Schema.Attribute.Text;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1138,7 +1210,9 @@ declare module '@strapi/strapi' {
       'api::article.article': ApiArticleArticle;
       'api::author.author': ApiAuthorAuthor;
       'api::category.category': ApiCategoryCategory;
+      'api::faq.faq': ApiFaqFaq;
       'api::global.global': ApiGlobalGlobal;
+      'api::hero-section.hero-section': ApiHeroSectionHeroSection;
       'api::program.program': ApiProgramProgram;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;

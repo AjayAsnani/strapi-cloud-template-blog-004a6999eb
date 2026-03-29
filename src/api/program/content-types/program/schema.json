@@ -18,6 +18,9 @@
       "type": "component",
       "component": "shared.page-seo",
       "repeatable": false
+    },
+    "careerRoles": {
+      "type": "text"
     }
   }
 }
