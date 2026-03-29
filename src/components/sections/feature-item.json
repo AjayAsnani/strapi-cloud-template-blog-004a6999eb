@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_sections_feature_items",
+  "info": {
+    "displayName": "Feature Item",
+    "description": "A single feature bullet point"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "string",
+      "required": true
+    }
+  }
+}
