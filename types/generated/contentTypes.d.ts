@@ -690,6 +690,44 @@ export interface ApiProgramProgram extends Struct.CollectionTypeSchema {
     publishedAt: Schema.Attribute.DateTime;
     seo: Schema.Attribute.Component<'shared.page-seo', false>;
     slug: Schema.Attribute.String;
+    speacilizedHeadingNormal: Schema.Attribute.String;
+    specializedHeadingBold: Schema.Attribute.Text;
+    specializedSubheading: Schema.Attribute.Text;
+    specializedTabs: Schema.Attribute.Text;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiSpecializedcourseSpecializedcourse
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'specializedcourses';
+  info: {
+    displayName: 'Specialized Course';
+    pluralName: 'specializedcourses';
+    singularName: 'specializedcourse';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    courseName: Schema.Attribute.Text;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    isPopular: Schema.Attribute.Boolean;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::specializedcourse.specializedcourse'
+    > &
+      Schema.Attribute.Private;
+    order: Schema.Attribute.Integer;
+    program: Schema.Attribute.Relation<'oneToOne', 'api::program.program'>;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.Text;
+    specializedTag: Schema.Attribute.Text;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1214,6 +1252,7 @@ declare module '@strapi/strapi' {
       'api::global.global': ApiGlobalGlobal;
       'api::hero-section.hero-section': ApiHeroSectionHeroSection;
       'api::program.program': ApiProgramProgram;
+      'api::specializedcourse.specializedcourse': ApiSpecializedcourseSpecializedcourse;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

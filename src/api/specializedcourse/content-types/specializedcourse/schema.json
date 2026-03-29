@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "specializedcourses",
+  "info": {
+    "singularName": "specializedcourse",
+    "pluralName": "specializedcourses",
+    "displayName": "Specialized Course"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "courseName": {
+      "type": "text"
+    },
+    "slug": {
+      "type": "text"
+    },
+    "program": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::program.program"
+    },
+    "specializedTag": {
+      "type": "text"
+    },
+    "isPopular": {
+      "type": "boolean"
+    },
+    "order": {
+      "type": "integer"
+    }
+  }
+}
