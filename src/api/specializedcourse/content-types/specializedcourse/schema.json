@@ -40,12 +40,6 @@
       "type": "component",
       "component": "shared.seo",
       "repeatable": false
-    },
-    "programBadge": {
-      "type": "string"
-    },
-    "featureTags": {
-      "type": "string"
     }
   }
 }
