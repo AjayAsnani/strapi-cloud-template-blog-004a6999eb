@@ -28,6 +28,18 @@
     },
     "pointList": {
       "type": "text"
+    },
+    "pageType": {
+      "type": "enumeration",
+      "enum": [
+        "MainProgram",
+        "Elective"
+      ]
+    },
+    "specialized_course": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::specializedcourse.specializedcourse"
     }
   }
 }

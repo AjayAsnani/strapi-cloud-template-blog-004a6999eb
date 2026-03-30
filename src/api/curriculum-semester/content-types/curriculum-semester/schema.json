@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "curriculum_semesters",
+  "info": {
+    "singularName": "curriculum-semester",
+    "pluralName": "curriculum-semesters",
+    "displayName": "Curriculum Semester"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "semesterNumber": {
+      "type": "integer"
+    },
+    "semesterHeading": {
+      "type": "string"
+    },
+    "courses": {
+      "type": "json"
+    },
+    "skills": {
+      "type": "json"
+    },
+    "certifications": {
+      "type": "json"
+    },
+    "specialized_course": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::specializedcourse.specializedcourse"
+    }
+  }
+}

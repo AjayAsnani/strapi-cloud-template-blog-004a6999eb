@@ -459,6 +459,79 @@ export interface ApiAboutAbout extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiCurriculumSemesterCurriculumSemester
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'curriculum_semesters';
+  info: {
+    displayName: 'Curriculum Semester';
+    pluralName: 'curriculum-semesters';
+    singularName: 'curriculum-semester';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    certifications: Schema.Attribute.JSON;
+    courses: Schema.Attribute.JSON;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::curriculum-semester.curriculum-semester'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    semesterHeading: Schema.Attribute.String;
+    semesterNumber: Schema.Attribute.Integer;
+    skills: Schema.Attribute.JSON;
+    specialized_course: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::specializedcourse.specializedcourse'
+    >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiElectivecareercardElectivecareercard
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'electivecareercards';
+  info: {
+    displayName: 'Elective Career Card';
+    pluralName: 'electivecareercards';
+    singularName: 'electivecareercard';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text;
+    heading: Schema.Attribute.Text;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::electivecareercard.electivecareercard'
+    > &
+      Schema.Attribute.Private;
+    number: Schema.Attribute.Integer;
+    order: Schema.Attribute.Integer;
+    publishedAt: Schema.Attribute.DateTime;
+    specialized_course: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::specializedcourse.specializedcourse'
+    >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiFacultySectionFacultySection
   extends Struct.CollectionTypeSchema {
   collectionName: 'faculty_sections';
@@ -514,6 +587,10 @@ export interface ApiFaqFaq extends Struct.CollectionTypeSchema {
     program: Schema.Attribute.Relation<'oneToOne', 'api::program.program'>;
     publishedAt: Schema.Attribute.DateTime;
     question: Schema.Attribute.Text;
+    specialized_course: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::specializedcourse.specializedcourse'
+    >;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -576,12 +653,59 @@ export interface ApiHeroSectionHeroSection extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     mainHeading: Schema.Attribute.Text;
+    pageType: Schema.Attribute.Enumeration<['MainProgram', 'Elective']>;
     pointList: Schema.Attribute.Text;
     program: Schema.Attribute.Relation<'oneToOne', 'api::program.program'>;
     publishedAt: Schema.Attribute.DateTime;
+    specialized_course: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::specializedcourse.specializedcourse'
+    >;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+  };
+}
+
+export interface ApiProgramInvestmentProgramInvestment
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'program_investments';
+  info: {
+    displayName: 'Program Investment';
+    pluralName: 'program-investments';
+    singularName: 'program-investment';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    eligibilityText: Schema.Attribute.Text;
+    emiStartingAmount: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::program-investment.program-investment'
+    > &
+      Schema.Attribute.Private;
+    onetimeAmount: Schema.Attribute.String;
+    onetimeLabel: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    semesterlyAmount: Schema.Attribute.String;
+    semesterlyLabel: Schema.Attribute.String;
+    specialized_course: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::specializedcourse.specializedcourse'
+    >;
+    totalFeeAmount: Schema.Attribute.String;
+    totalFeeLabel: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    yearlyAmount: Schema.Attribute.String;
+    yearlyLabel: Schema.Attribute.String;
   };
 }
 
@@ -606,6 +730,7 @@ export interface ApiProgramProgram extends Struct.CollectionTypeSchema {
       'api::program.program'
     > &
       Schema.Attribute.Private;
+    programLevel: Schema.Attribute.Enumeration<['Masters', 'Bachelors']>;
     publishedAt: Schema.Attribute.DateTime;
     seo: Schema.Attribute.Component<'shared.page-seo', false>;
     slug: Schema.Attribute.String;
@@ -652,6 +777,7 @@ export interface ApiSpecializedcourseSpecializedcourse
   collectionName: 'specializedcourses';
   info: {
     displayName: 'Specialized Course';
+    mainField: 'courseName';
     pluralName: 'specializedcourses';
     singularName: 'specializedcourse';
   };
@@ -659,10 +785,11 @@ export interface ApiSpecializedcourseSpecializedcourse
     draftAndPublish: true;
   };
   attributes: {
-    courseName: Schema.Attribute.Text;
+    courseName: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    hasDetailPage: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     isPopular: Schema.Attribute.Boolean;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
@@ -673,8 +800,9 @@ export interface ApiSpecializedcourseSpecializedcourse
     order: Schema.Attribute.Integer;
     program: Schema.Attribute.Relation<'oneToOne', 'api::program.program'>;
     publishedAt: Schema.Attribute.DateTime;
-    slug: Schema.Attribute.Text;
-    specializedTag: Schema.Attribute.Text;
+    seo: Schema.Attribute.Component<'shared.seo', false>;
+    slug: Schema.Attribute.String;
+    specializedTag: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1192,10 +1320,13 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::about.about': ApiAboutAbout;
+      'api::curriculum-semester.curriculum-semester': ApiCurriculumSemesterCurriculumSemester;
+      'api::electivecareercard.electivecareercard': ApiElectivecareercardElectivecareercard;
       'api::faculty-section.faculty-section': ApiFacultySectionFacultySection;
       'api::faq.faq': ApiFaqFaq;
       'api::global.global': ApiGlobalGlobal;
       'api::hero-section.hero-section': ApiHeroSectionHeroSection;
+      'api::program-investment.program-investment': ApiProgramInvestmentProgramInvestment;
       'api::program.program': ApiProgramProgram;
       'api::specialized-content.specialized-content': ApiSpecializedContentSpecializedContent;
       'api::specializedcourse.specializedcourse': ApiSpecializedcourseSpecializedcourse;

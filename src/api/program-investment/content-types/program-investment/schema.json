@@ -1,0 +1,50 @@
+{
+  "kind": "collectionType",
+  "collectionName": "program_investments",
+  "info": {
+    "singularName": "program-investment",
+    "pluralName": "program-investments",
+    "displayName": "Program Investment"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "totalFeeLabel": {
+      "type": "string"
+    },
+    "totalFeeAmount": {
+      "type": "string"
+    },
+    "yearlyLabel": {
+      "type": "string"
+    },
+    "yearlyAmount": {
+      "type": "string"
+    },
+    "semesterlyLabel": {
+      "type": "string"
+    },
+    "semesterlyAmount": {
+      "type": "string"
+    },
+    "onetimeLabel": {
+      "type": "string"
+    },
+    "onetimeAmount": {
+      "type": "string"
+    },
+    "eligibilityText": {
+      "type": "text"
+    },
+    "emiStartingAmount": {
+      "type": "string"
+    },
+    "specialized_course": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::specializedcourse.specializedcourse"
+    }
+  }
+}
