@@ -1,26 +1,24 @@
 {
   "kind": "collectionType",
-  "collectionName": "faqs",
+  "collectionName": "electivecareercards",
   "info": {
-    "singularName": "faq",
-    "pluralName": "faqs",
-    "displayName": "FAQ"
+    "singularName": "electivecareercard",
+    "pluralName": "electivecareercards",
+    "displayName": "Elective Career Card"
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "question": {
+    "number": {
+      "type": "integer"
+    },
+    "heading": {
       "type": "text"
     },
-    "answer": {
+    "description": {
       "type": "text"
-    },
-    "program": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::program.program"
     },
     "order": {
       "type": "integer"
