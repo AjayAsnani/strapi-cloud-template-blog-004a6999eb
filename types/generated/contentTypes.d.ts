@@ -481,8 +481,12 @@ export interface ApiFacultySectionFacultySection
     > &
       Schema.Attribute.Private;
     mentorDesignation: Schema.Attribute.Text;
-    mentorImage: Schema.Attribute.Text;
-    mentorLogo: Schema.Attribute.Text;
+    mentorImage: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    mentorLogo: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
     mentorName: Schema.Attribute.Text;
     program: Schema.Attribute.Relation<'oneToOne', 'api::program.program'>;
     publishedAt: Schema.Attribute.DateTime;

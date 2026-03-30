@@ -17,16 +17,30 @@
     "mentorDesignation": {
       "type": "text"
     },
-    "mentorImage": {
-      "type": "text"
-    },
-    "mentorLogo": {
-      "type": "text"
-    },
     "program": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::program.program"
+    },
+    "mentorLogo": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "mentorImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
     }
   }
 }
