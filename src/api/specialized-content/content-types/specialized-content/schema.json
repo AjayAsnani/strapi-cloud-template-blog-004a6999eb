@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "specialized_contents",
+  "info": {
+    "singularName": "specialized-content",
+    "pluralName": "specialized-contents",
+    "displayName": "Specialized Content"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Heading": {
+      "type": "text"
+    },
+    "Subheading": {
+      "type": "text"
+    },
+    "specializedTabs": {
+      "type": "string"
+    },
+    "program": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::program.program"
+    }
+  }
+}
