@@ -15,14 +15,8 @@
     "highlightText": {
       "type": "text"
     },
-    "headingOne": {
+    "mainHeading": {
       "type": "text"
-    },
-    "headingTwoBold": {
-      "type": "string"
-    },
-    "headingThree": {
-      "type": "string"
     },
     "Discription": {
       "type": "text"

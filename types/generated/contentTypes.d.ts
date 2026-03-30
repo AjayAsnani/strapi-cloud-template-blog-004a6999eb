@@ -568,9 +568,6 @@ export interface ApiHeroSectionHeroSection extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     Discription: Schema.Attribute.Text;
-    headingOne: Schema.Attribute.Text;
-    headingThree: Schema.Attribute.String;
-    headingTwoBold: Schema.Attribute.String;
     highlightText: Schema.Attribute.Text;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
@@ -578,6 +575,7 @@ export interface ApiHeroSectionHeroSection extends Struct.CollectionTypeSchema {
       'api::hero-section.hero-section'
     > &
       Schema.Attribute.Private;
+    mainHeading: Schema.Attribute.Text;
     pointList: Schema.Attribute.Text;
     program: Schema.Attribute.Relation<'oneToOne', 'api::program.program'>;
     publishedAt: Schema.Attribute.DateTime;
@@ -611,10 +609,38 @@ export interface ApiProgramProgram extends Struct.CollectionTypeSchema {
     publishedAt: Schema.Attribute.DateTime;
     seo: Schema.Attribute.Component<'shared.page-seo', false>;
     slug: Schema.Attribute.String;
-    speacilizedHeadingNormal: Schema.Attribute.String;
-    specializedHeadingBold: Schema.Attribute.Text;
-    specializedSubheading: Schema.Attribute.Text;
-    specializedTabs: Schema.Attribute.Text;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiSpecializedContentSpecializedContent
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'specialized_contents';
+  info: {
+    displayName: 'Specialized Content';
+    pluralName: 'specialized-contents';
+    singularName: 'specialized-content';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Heading: Schema.Attribute.Text;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::specialized-content.specialized-content'
+    > &
+      Schema.Attribute.Private;
+    program: Schema.Attribute.Relation<'oneToOne', 'api::program.program'>;
+    publishedAt: Schema.Attribute.DateTime;
+    specializedTabs: Schema.Attribute.String;
+    Subheading: Schema.Attribute.Text;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1171,6 +1197,7 @@ declare module '@strapi/strapi' {
       'api::global.global': ApiGlobalGlobal;
       'api::hero-section.hero-section': ApiHeroSectionHeroSection;
       'api::program.program': ApiProgramProgram;
+      'api::specialized-content.specialized-content': ApiSpecializedContentSpecializedContent;
       'api::specializedcourse.specializedcourse': ApiSpecializedcourseSpecializedcourse;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;

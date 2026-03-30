@@ -21,18 +21,6 @@
     },
     "careerRoles": {
       "type": "text"
-    },
-    "specializedHeadingBold": {
-      "type": "text"
-    },
-    "speacilizedHeadingNormal": {
-      "type": "string"
-    },
-    "specializedSubheading": {
-      "type": "text"
-    },
-    "specializedTabs": {
-      "type": "text"
     }
   }
 }
