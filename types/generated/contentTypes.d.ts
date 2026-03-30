@@ -559,6 +559,10 @@ export interface ApiFacultySectionFacultySection
     mentorName: Schema.Attribute.Text;
     program: Schema.Attribute.Relation<'oneToOne', 'api::program.program'>;
     publishedAt: Schema.Attribute.DateTime;
+    specialized_course: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::specializedcourse.specializedcourse'
+    >;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -789,6 +793,7 @@ export interface ApiSpecializedcourseSpecializedcourse
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    featureTags: Schema.Attribute.String;
     hasDetailPage: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     isPopular: Schema.Attribute.Boolean;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
@@ -799,6 +804,7 @@ export interface ApiSpecializedcourseSpecializedcourse
       Schema.Attribute.Private;
     order: Schema.Attribute.Integer;
     program: Schema.Attribute.Relation<'oneToOne', 'api::program.program'>;
+    programBadge: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     seo: Schema.Attribute.Component<'shared.seo', false>;
     slug: Schema.Attribute.String;

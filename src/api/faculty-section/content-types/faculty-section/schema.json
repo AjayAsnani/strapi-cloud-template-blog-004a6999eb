@@ -27,6 +27,11 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::program.program"
+    },
+    "specialized_course": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::specializedcourse.specializedcourse"
     }
   }
 }
