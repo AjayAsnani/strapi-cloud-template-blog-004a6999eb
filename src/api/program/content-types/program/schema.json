@@ -21,6 +21,13 @@
     },
     "careerRoles": {
       "type": "text"
+    },
+    "programLevel": {
+      "type": "enumeration",
+      "enum": [
+        "Masters",
+        "Bachelors"
+      ]
     }
   }
 }

@@ -4,7 +4,8 @@
   "info": {
     "singularName": "specializedcourse",
     "pluralName": "specializedcourses",
-    "displayName": "Specialized Course"
+    "displayName": "Specialized Course",
+    "mainField": "courseName"
   },
   "options": {
     "draftAndPublish": true
@@ -12,10 +13,10 @@
   "pluginOptions": {},
   "attributes": {
     "courseName": {
-      "type": "text"
+      "type": "string"
     },
     "slug": {
-      "type": "text"
+      "type": "string"
     },
     "program": {
       "type": "relation",
@@ -23,13 +24,22 @@
       "target": "api::program.program"
     },
     "specializedTag": {
-      "type": "text"
+      "type": "string"
     },
     "isPopular": {
       "type": "boolean"
     },
     "order": {
       "type": "integer"
+    },
+    "hasDetailPage": {
+      "type": "boolean",
+      "default": false
+    },
+    "seo": {
+      "type": "component",
+      "component": "shared.seo",
+      "repeatable": false
     }
   }
 }
