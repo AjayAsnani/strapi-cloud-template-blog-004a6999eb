@@ -486,8 +486,8 @@ export interface ApiCurriculumSemesterCurriculumSemester
     semesterHeading: Schema.Attribute.String;
     semesterNumber: Schema.Attribute.Integer;
     skills: Schema.Attribute.JSON;
-    specialized_course: Schema.Attribute.Relation<
-      'oneToOne',
+    specialized_courses: Schema.Attribute.Relation<
+      'manyToMany',
       'api::specializedcourse.specializedcourse'
     >;
     updatedAt: Schema.Attribute.DateTime;
@@ -793,6 +793,10 @@ export interface ApiSpecializedcourseSpecializedcourse
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    curriculum_semesters: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::curriculum-semester.curriculum-semester'
+    >;
     featureTags: Schema.Attribute.String;
     hasDetailPage: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     isPopular: Schema.Attribute.Boolean;
