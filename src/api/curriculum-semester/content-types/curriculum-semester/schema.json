@@ -26,11 +26,10 @@
     "certifications": {
       "type": "json"
     },
-    "specialized_courses": {
+    "specialized_course": {
       "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::specializedcourse.specializedcourse",
-      "inversedBy": "curriculum_semesters"
+      "relation": "oneToOne",
+      "target": "api::specializedcourse.specializedcourse"
     }
   }
 }

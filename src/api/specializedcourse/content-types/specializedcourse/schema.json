@@ -46,12 +46,6 @@
     },
     "featureTags": {
       "type": "string"
-    },
-    "curriculum_semesters": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::curriculum-semester.curriculum-semester",
-      "mappedBy": "specialized_courses"
     }
   }
 }
