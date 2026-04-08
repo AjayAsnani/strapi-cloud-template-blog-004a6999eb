@@ -1,38 +1,40 @@
 module.exports = [
-  'strapi::logger',
-  'strapi::errors',
+  "strapi::logger",
+  "strapi::errors",
   {
-    name: 'strapi::security',
+    name: "strapi::security",
     config: {
       contentSecurityPolicy: {
         useDefaults: true,
         directives: {
-          'connect-src': ["'self'", 'https:','https://proxy-event.ckeditor.com'],
-          'script-src': ['https://cdn.ckeditor.com'],
-          'img-src': [
+          "connect-src": [
             "'self'",
-            'data:',
-            'blob:',
-            'market-assets.strapi.io',
-            'onlinejain.com-v2.s3.ap-south-1.amazonaws.com',
+            "https:",
           ],
-          'media-src': [
+          "img-src": [
             "'self'",
-            'data:',
-            'blob:',
-            'market-assets.strapi.io',
-            'onlinejain.com-v2.s3.ap-south-1.amazonaws.com',
+            "data:",
+            "blob:",
+            "market-assets.strapi.io",
+            "onlinejain.com-v2.s3.ap-south-1.amazonaws.com",
+          ],
+          "media-src": [
+            "'self'",
+            "data:",
+            "blob:",
+            "market-assets.strapi.io",
+            "onlinejain.com-v2.s3.ap-south-1.amazonaws.com",
           ],
           upgradeInsecureRequests: null,
         },
       },
     },
   },
-  'strapi::cors',
-  'strapi::poweredBy',
-  'strapi::query',
-  'strapi::body',
-  'strapi::session',
-  'strapi::favicon',
-  'strapi::public',
+  "strapi::cors",
+  "strapi::poweredBy",
+  "strapi::query",
+  "strapi::body",
+  "strapi::session",
+  "strapi::favicon",
+  "strapi::public",
 ];
