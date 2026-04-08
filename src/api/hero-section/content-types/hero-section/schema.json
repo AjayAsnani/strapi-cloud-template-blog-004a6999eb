@@ -40,6 +40,13 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::specializedcourse.specializedcourse"
+    },
+    "banner_image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
     }
   }
 }

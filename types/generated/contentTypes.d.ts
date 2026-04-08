@@ -729,6 +729,7 @@ export interface ApiHeroSectionHeroSection extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    banner_image: Schema.Attribute.Media<'images'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -818,6 +819,7 @@ export interface ApiProgramProgram extends Struct.CollectionTypeSchema {
       'api::program.program'
     > &
       Schema.Attribute.Private;
+    program_slug: Schema.Attribute.String;
     programLevel: Schema.Attribute.Enumeration<['Masters', 'Bachelors']>;
     publishedAt: Schema.Attribute.DateTime;
     seo: Schema.Attribute.Component<'shared.page-seo', false>;
