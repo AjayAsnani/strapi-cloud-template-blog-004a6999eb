@@ -27,11 +27,11 @@
     "order": {
       "type": "integer"
     },
-    "blog_content": {
+    "blog_contents": {
       "type": "relation",
-      "relation": "manyToOne",
+      "relation": "oneToMany",
       "target": "api::blog-content.blog-content",
-      "inversedBy": "blog_categories"
+      "mappedBy": "blog_category"
     }
   }
 }
