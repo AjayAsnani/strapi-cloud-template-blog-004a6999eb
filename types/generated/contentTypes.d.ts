@@ -471,8 +471,8 @@ export interface ApiBlogCategoryBlogCategory
     draftAndPublish: true;
   };
   attributes: {
-    blog_content: Schema.Attribute.Relation<
-      'manyToOne',
+    blog_contents: Schema.Attribute.Relation<
+      'oneToMany',
       'api::blog-content.blog-content'
     >;
     createdAt: Schema.Attribute.DateTime;
@@ -506,8 +506,8 @@ export interface ApiBlogContentBlogContent extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    blog_categories: Schema.Attribute.Relation<
-      'oneToMany',
+    blog_category: Schema.Attribute.Relation<
+      'manyToOne',
       'api::blog-category.blog-category'
     >;
     content: Schema.Attribute.RichText &
@@ -534,6 +534,7 @@ export interface ApiBlogContentBlogContent extends Struct.CollectionTypeSchema {
     order: Schema.Attribute.Integer;
     publish_at: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'shared.seo', false>;
     slug: Schema.Attribute.String;
     title: Schema.Attribute.String;
     trending: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
@@ -729,6 +730,7 @@ export interface ApiHeroSectionHeroSection extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    banner_image: Schema.Attribute.Media<'images'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -818,6 +820,7 @@ export interface ApiProgramProgram extends Struct.CollectionTypeSchema {
       'api::program.program'
     > &
       Schema.Attribute.Private;
+    program_slug: Schema.Attribute.String;
     programLevel: Schema.Attribute.Enumeration<['Masters', 'Bachelors']>;
     publishedAt: Schema.Attribute.DateTime;
     seo: Schema.Attribute.Component<'shared.page-seo', false>;

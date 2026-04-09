@@ -28,6 +28,9 @@
         "Masters",
         "Bachelors"
       ]
+    },
+    "program_slug": {
+      "type": "string"
     }
   }
 }

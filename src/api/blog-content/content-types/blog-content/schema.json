@@ -14,11 +14,11 @@
     "title": {
       "type": "string"
     },
-    "blog_categories": {
+    "blog_category": {
       "type": "relation",
-      "relation": "oneToMany",
+      "relation": "manyToOne",
       "target": "api::blog-category.blog-category",
-      "mappedBy": "blog_content"
+      "inversedBy": "blog_contents"
     },
     "image": {
       "type": "media",
@@ -57,6 +57,11 @@
     },
     "publish_at": {
       "type": "datetime"
+    },
+    "seo": {
+      "type": "component",
+      "component": "shared.seo",
+      "repeatable": false
     }
   }
 }
