@@ -23,6 +23,9 @@
       "relation": "oneToOne",
       "target": "api::program.program"
     },
+    "program_slug": {
+      "type": "string"
+    },
     "specializedTag": {
       "type": "string"
     },
