@@ -891,6 +891,7 @@ export interface ApiSpecializedcourseSpecializedcourse
       Schema.Attribute.Private;
     order: Schema.Attribute.Integer;
     program: Schema.Attribute.Relation<'oneToOne', 'api::program.program'>;
+    program_slug: Schema.Attribute.String;
     programBadge: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     seo: Schema.Attribute.Component<'shared.seo', false>;
