@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "elective_faqs",
+  "info": {
+    "singularName": "elective-faq",
+    "pluralName": "elective-faqs",
+    "displayName": "ElectiveFAQ"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "question": {
+      "type": "string"
+    },
+    "answer": {
+      "type": "text"
+    },
+    "specialized_course": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::specializedcourse.specializedcourse"
+    },
+    "order": {
+      "type": "integer"
+    }
+  }
+}
