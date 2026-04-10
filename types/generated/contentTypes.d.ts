@@ -581,6 +581,40 @@ export interface ApiCurriculumSemesterCurriculumSemester
   };
 }
 
+export interface ApiElectiveFaqElectiveFaq extends Struct.CollectionTypeSchema {
+  collectionName: 'elective_faqs';
+  info: {
+    displayName: 'ElectiveFAQ';
+    pluralName: 'elective-faqs';
+    singularName: 'elective-faq';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    answer: Schema.Attribute.Text;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::elective-faq.elective-faq'
+    > &
+      Schema.Attribute.Private;
+    order: Schema.Attribute.Integer;
+    publishedAt: Schema.Attribute.DateTime;
+    question: Schema.Attribute.String;
+    specialized_course: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::specializedcourse.specializedcourse'
+    >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiElectivecareercardElectivecareercard
   extends Struct.CollectionTypeSchema {
   collectionName: 'electivecareercards';
@@ -657,7 +691,7 @@ export interface ApiFacultySectionFacultySection
 export interface ApiFaqFaq extends Struct.CollectionTypeSchema {
   collectionName: 'faqs';
   info: {
-    displayName: 'FAQ';
+    displayName: 'ProgramFAQ';
     pluralName: 'faqs';
     singularName: 'faq';
   };
@@ -1417,6 +1451,7 @@ declare module '@strapi/strapi' {
       'api::blog-category.blog-category': ApiBlogCategoryBlogCategory;
       'api::blog-content.blog-content': ApiBlogContentBlogContent;
       'api::curriculum-semester.curriculum-semester': ApiCurriculumSemesterCurriculumSemester;
+      'api::elective-faq.elective-faq': ApiElectiveFaqElectiveFaq;
       'api::electivecareercard.electivecareercard': ApiElectivecareercardElectivecareercard;
       'api::faculty-section.faculty-section': ApiFacultySectionFacultySection;
       'api::faq.faq': ApiFaqFaq;
