@@ -808,6 +808,7 @@ export interface ApiProgramInvestmentProgramInvestment
       Schema.Attribute.Private;
     eligibilityText: Schema.Attribute.Text;
     emiStartingAmount: Schema.Attribute.String;
+    emiStartingAmountIntl: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -815,20 +816,24 @@ export interface ApiProgramInvestmentProgramInvestment
     > &
       Schema.Attribute.Private;
     onetimeAmount: Schema.Attribute.String;
+    onetimeAmountIntl: Schema.Attribute.String;
     onetimeLabel: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     semesterlyAmount: Schema.Attribute.String;
+    semesterlyAmountIntl: Schema.Attribute.String;
     semesterlyLabel: Schema.Attribute.String;
     specialized_course: Schema.Attribute.Relation<
       'oneToOne',
       'api::specializedcourse.specializedcourse'
     >;
     totalFeeAmount: Schema.Attribute.String;
+    totalFeeAmountIntl: Schema.Attribute.String;
     totalFeeLabel: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     yearlyAmount: Schema.Attribute.String;
+    yearlyAmountIntl: Schema.Attribute.String;
     yearlyLabel: Schema.Attribute.String;
   };
 }

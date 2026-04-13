@@ -17,10 +17,16 @@
     "totalFeeAmount": {
       "type": "string"
     },
+    "totalFeeAmountIntl": {
+      "type": "string"
+    },
     "yearlyLabel": {
       "type": "string"
     },
     "yearlyAmount": {
+      "type": "string"
+    },
+    "yearlyAmountIntl": {
       "type": "string"
     },
     "semesterlyLabel": {
@@ -29,16 +35,25 @@
     "semesterlyAmount": {
       "type": "string"
     },
+    "semesterlyAmountIntl": {
+      "type": "string"
+    },
     "onetimeLabel": {
       "type": "string"
     },
     "onetimeAmount": {
       "type": "string"
     },
+    "onetimeAmountIntl": {
+      "type": "string"
+    },
     "eligibilityText": {
       "type": "text"
     },
     "emiStartingAmount": {
+      "type": "string"
+    },
+    "emiStartingAmountIntl": {
       "type": "string"
     },
     "specialized_course": {
